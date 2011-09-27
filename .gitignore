@@ -1,0 +1,15 @@
+#ignore IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea/*
+.idea
+#ignore project utility files
+.pair
+.story
+.comment
+
+#ignore build outputs, buildr test report and db folder
+out/
+reports/
+target/
