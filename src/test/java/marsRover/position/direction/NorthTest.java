@@ -1,4 +1,4 @@
-package marsRover.direction;
+package marsRover.position.direction;
 
 import org.junit.Before;
 import org.junit.Test;

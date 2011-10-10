@@ -1,6 +1,4 @@
-package marsRover;
-
-import marsRover.direction.*;
+package marsRover.position.direction;
 
 public class DirectionFactory {
 

@@ -1,6 +1,5 @@
 package marsRover;
 
-import marsRover.direction.North;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,18 +13,35 @@ public class RoverTest {
     @Before
     public void setUp() {
         rover = new Rover();
-        rover.setCoordinate("3,4");
-        rover.setDirection("N");
+        rover.setPosition("34N");
     }
 
     @Test
-    public void should_set_the_coordinate() {
-        assertThat(rover.getCoordinate(), is(new Coordinate("3,4")));
+    public void should_update_position_when_turn_left(){
+        rover.setCommands("L");
+        rover.execute();
+        assertThat(rover.getPosition().toString(),is("34W"));
+    }
+    @Test
+    public void should_update_position_when_turn_right(){
+        rover.setCommands("R");
+        rover.execute();
+        assertThat(rover.getPosition().toString(), is("34E"));
     }
 
     @Test
-    public void should_set_the_direction() {
-        assertThat(rover.getDirection(),is(North.class));
+    public void should_update_position_when_move(){
+        rover.setCommands("M");
+        rover.execute();
+        assertThat(rover.getPosition().toString(), is("35N"));
+    }
+
+    @Test
+    public void should_execute_multiple_commands(){
+        rover.setPosition("12N");
+        rover.setCommands("LMLMLMLMM");
+        rover.execute();
+        assertThat(rover.getPosition().toString(),is("13N"));
     }
 
 }

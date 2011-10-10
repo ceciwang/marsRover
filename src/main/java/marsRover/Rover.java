@@ -1,26 +1,37 @@
 package marsRover;
 
-import marsRover.direction.Direction;
+import marsRover.position.Position;
+
+import java.util.ArrayList;
 
 public class Rover {
 
-    private Coordinate coordinate;
-    private Direction direction;
+    private ArrayList<String> commands;
+    private Position position;
 
-    public void setCoordinate(String s) {
-        this.coordinate = new Coordinate(s);
+    public Position getPosition() {
+        return position;
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
+    public void setPosition(String s) {
+        this.position = new Position(s);
     }
 
-    public void setDirection(String direction) {
-        DirectionFactory directionFactory = new DirectionFactory();
-        this.direction = directionFactory.createDirection(direction);
+    public ArrayList<String> getCommands() {
+        return commands;
     }
 
-    public Direction getDirection() {
-        return direction;
+    public void setCommands(String commandString) {
+        ArrayList<String> commands = new ArrayList<String>();
+        for (int i = 0; i < commandString.length(); i++) {
+            commands.add(commandString.substring(i, i + 1));
+        }
+        this.commands = commands;
+    }
+
+    public void execute() {
+        for (String command : commands) {
+            position.update(command);
+        }
     }
 }

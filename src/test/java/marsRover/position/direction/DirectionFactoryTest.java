@@ -1,9 +1,5 @@
-package marsRover;
+package marsRover.position.direction;
 
-import marsRover.direction.East;
-import marsRover.direction.North;
-import marsRover.direction.South;
-import marsRover.direction.West;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

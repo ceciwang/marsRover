@@ -1,4 +1,4 @@
-package marsRover.direction;
+package marsRover.position.direction;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,22 +6,22 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class SouthTest {
-    private South direction;
+public class WestTest {
+    private West direction;
 
     @Before
     public void setUp(){
-        direction = new South();
+        direction = new West();
     }
 
     @Test
     public void should_change_the_direction_if_turn_left() {
-        assertThat(direction.turnLeft(),is(East.class));
+        assertThat(direction.turnLeft(),is(South.class));
     }
 
     @Test
     public void should_change_the_direction_if_turn_right() {
-        assertThat(direction.turnRight(),is(West.class));
+        assertThat(direction.turnRight(),is(North.class));
     }
 
 }
